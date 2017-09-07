@@ -1,0 +1,27 @@
+.searchButton {
+	border: none;
+	margin: 10px 10px 10px 10px;
+	color: #ffffff;
+	background-color: #0BADD4;
+	font-size: 20px;
+	padding: 10px 15px 10px 15px;
+}
+
+#searchBox {
+	margin: 30px 0px 0px 10px;
+	border-style: solid;
+	border-width: 2px; 
+	border-color: #0BADD4;
+	height: 22px;
+	width: 200px;
+	font-size: 18px;
+}
+
+.buttonAppender {
+	border: none;
+	margin: 10px 10px 10px 10px;
+	color: #ffffff;
+	background-color: #0BADD4;
+	font-size: 20px;
+	padding: 8px 15px 8px 15px;
+}
