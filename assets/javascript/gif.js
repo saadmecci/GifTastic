@@ -1,58 +1,77 @@
-$(document).ready(function () {
+$(document).ready(function() {
 
-	var artists = [
-		"Taylor Swift", 
-		"Drake", 
-		"DJ Khaled", 
-		"Kanye West", 
-		"The Weeknd", 
-		"Jay-Z"
-	];
+    var artists = [
+        "Taylor Swift",
+        "Drake",
+        "DJ Khaled",
+        "Kanye West",
+        "The Weeknd",
+        "Jay-Z"
+    ];
 
 
-	function renderButtons () {
+    function renderButtons() {
 
-		$(".gifButtons").empty();
+        $(".gifButtons").empty();
 
-		for (var i = 0; i < artists.length; i++) {
+        for (var i = 0; i < artists.length; i++) {
 
-			$(".gifButtons").append("<button class='searchButton'>" + artists[i] + "</button>");
-		}
-	}
+            var artistButton = $("<button>").attr("id", "searchButton");
 
-	renderButtons();
+            $(artistButton).append(artists[i]);
 
-	var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + $(".searchButton").html() + "&api_key=dc6zaTOxFJmzC&limit=10"
+            $(".gifButtons").append(artistButton);
+        }
+    }
 
-	function displayGif () {
-		$.ajax({
-			url: queryURL,
-			method: "GET"
-		}).done(function(response){
+    renderButtons();
 
-			
-			console.log(response);
-			$(".gifsAppearHere").html(response);
-		})
-	}
+    function displayGif(button) {
 
-	function buttonClicker () {
+    	var currentSearch = $(button).html();
+    	var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + currentSearch + "&api_key=dc6zaTOxFJmzC&limit=10";
 
-		$(".searchButton").on("click", function () {
-			event.preventDefault();
-			displayGif();
-		})
-	}
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        }).done(function(response) {
 
-	buttonClicker();
+            console.log(response);
 
-	$(".buttonAppender").on("click", function (event) {
-		event.preventDefault();
-		var userArtist = $("#searchBox").val().trim();
-		artists.push(userArtist);
-		renderButtons();
-	});
+            var results = response.data
+
+            for (var i = 0; i < results.length; i++) {
+
+                var gifDiv = $("<div class='float'>");
+                var rating = $("<p>").text("Rating: " + results[i].rating);
+
+                var gifImage = $("<img>");
+
+                gifImage.attr("src", results[i].images.fixed_height.url);
+
+                gifDiv.append(gifImage);
+                gifDiv.prepend(rating);
+
+                $(".gifsAppearHere").append(gifDiv);
+            }
+        });
+    }
+
+
+    $(document).on("click", "#searchButton", function() {
+        event.preventDefault();
+        $(".gifsAppearHere").empty();
+        displayGif(this);
+        renderButtons();
+    });
+
+    $(".buttonAppender").on("click", function(event) {
+        event.preventDefault();
+        var userArtist = $("#searchBox").val().trim();
+        artists.push(userArtist);
+        renderButtons();
+     });
+
+
 
 });
-
-
