@@ -38,25 +38,29 @@ $(document).ready(function() {
 
             console.log(response);
 
-            var results = response.data
+            var results = response.data;
 
             for (var i = 0; i < results.length; i++) {
 
                 var gifDiv = $("<div class='float'>");
                 var rating = $("<p>").text("Rating: " + results[i].rating);
 
-                var gifImage = $("<img>");
+                var gifImage = $("<img id='gifImage'>");
 
-                gifImage.attr("src", results[i].images.fixed_height.url);
+                gifImage.attr("src", results[i].images.fixed_height_still.url);
 
                 gifDiv.append(gifImage);
                 gifDiv.prepend(rating);
 
                 $(".gifsAppearHere").append(gifDiv);
             }
+
+            $("#gifImage").on("click", function() {
+
+            	$(this).attr("src", results[(this)].images.fixed_height.url);
+            });
         });
     }
-
 
     $(document).on("click", "#searchButton", function() {
         event.preventDefault();
@@ -71,7 +75,5 @@ $(document).ready(function() {
         artists.push(userArtist);
         renderButtons();
      });
-
-
 
 });
