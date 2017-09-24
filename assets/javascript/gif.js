@@ -55,19 +55,39 @@ $(document).ready(function() {
 
                 var gifImage = $("<img id='gifImage'>");
 
-                //this url will display the gif still
+                //this url will display get the src of image
                 gifImage.attr("src", results[i].images.fixed_height_still.url);
+                //still image
+                gifImage.attr("data-still", results[i].images.fixed_height_still.url);
+                //animated gif
+                gifImage.attr("data-animate", results[i].images.fixed_height.url)
 
                 gifDiv.append(gifImage);
                 gifDiv.append(rating);
 
                 $(".gifsAppearHere").append(gifDiv);
             }
-
-            //on click function needed to replace the stil url with the moving gif url when user clicks on the gif
             
         });
     }
+
+    //on click function needed to replace the stil url with the moving gif url when user clicks on the gif
+    $(document).on("click", "#gifImage", function () {
+        //get the data state of the image that is clicked
+        var state = $(this).attr("data-state");
+
+        //if the data state is still, update src attr to data-animate value 
+        //then switch the state to animate
+        //else set src to data still value to pause the gif
+        if (state === "still") {
+            $(this).attr("src", $(this).attr("data-animate"));
+            $(this).attr("data-state", "animate");
+        } else {
+            $(this).attr("src", $(this).attr("data-still"));
+            $(this).attr("data-state", "still");
+        }
+
+    });
 
     //function that will call on the displayGif function depending upon what artist button has been clicked by the user
     $(document).on("click", "#searchButton", function() {
