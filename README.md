@@ -6,6 +6,8 @@ It uses bootstrap and css for the styling, jQuery and javascript for the logic.
 
 It uses the **Giphy API** to search for and display gifs on html page.
 
+Clicking on the buttons will display 10 Gifs and their rating on the page.
+
 Initial Gif that appears will be a still image. 
 
 Gif will animate when the user clicks on the image.
