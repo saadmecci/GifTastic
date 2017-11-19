@@ -16,7 +16,7 @@ The image below is what users see when they first visit the site:
 
 I went with a theme of music artists but the user can search for any topic they want that is available on giphy.
 
-For example, users can type in "Cats" which will then make a fully functioning "Cats" button.
+For example, users can type in "Cats" which will then make a fully functioning "Cats" button when **Add a Gif** button is clicked on.
 
 <img src="assets/images/userChoice1.png" alt="Main Gif page">
 
