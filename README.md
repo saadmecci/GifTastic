@@ -18,10 +18,10 @@ I went with a theme of music artists but the user can search for any topic they 
 
 For example, users can type in "Cats" which will then make a fully functioning "Cats" button when **Add a Gif** button is clicked on.
 
-<img src="assets/images/userChoice1.png" alt="Main Gif page">
+<img src="assets/images/userSearch.png" alt="Cat in search box">
 
-<img src="assets/images/userChoice2.png" alt="Main Gif page">
+<img src="assets/images/userButton.png" alt="Cat button">
 
 Once the new button is clicked, still images appear which can be clicked to animate them.
 
-<img src="assets/images/userChoiceResult.png" alt="Main Gif page">
+<img src="assets/images/userResults.png" alt="Cat gifs">
