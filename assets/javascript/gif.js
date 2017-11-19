@@ -105,6 +105,7 @@ $(document).ready(function() {
         var userArtist = $("#searchBox").val().trim();
         artists.push(userArtist);
         renderButtons();
-     });
+        $("#searchBox").val("");
+    });
 
 });
