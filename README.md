@@ -12,16 +12,16 @@ Gif will animate when the user clicks on the image.
 
 The image below is what users see when they first visit the site:
 
-<img src="gifIndex.png" alt="Main Gif page">
+<img src="assets/images/gifIndex.png" alt="Main Gif page">
 
 I went with a theme of music artists but the user can search for any topic they want that is available on giphy.
 
 For example, users can type in "Cats" which will then make a fully functioning "Cats" button.
 
-<img src="userChoice1.png" alt="Main Gif page">
+<img src="assets/images/userChoice1.png" alt="Main Gif page">
 
-<img src="userChoice2.png" alt="Main Gif page">
+<img src="assets/images/userChoice2.png" alt="Main Gif page">
 
 Once the new button is clicked, still images appear which can be clicked to animate them.
 
-<img src="userChoiceResult.png" alt="Main Gif page">
+<img src="assets/images/userChoiceResult.png" alt="Main Gif page">
